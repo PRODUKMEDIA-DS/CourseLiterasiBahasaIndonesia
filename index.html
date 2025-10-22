@@ -23,235 +23,168 @@
     }
 
     *{box-sizing:border-box;}
-    html,body{height:100%;}
-    body{
-      margin:0;
-      font-family:'Baloo 2', 'Comic Neue', system-ui, sans-serif;
-      background:linear-gradient(180deg,var(--bg),#FFFFFF 60%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:30px 5vw;
-    }
+    html,body{height:100%; margin:0; font-family:'Baloo 2', 'Comic Neue', system-ui, sans-serif; background:linear-gradient(180deg,var(--bg),#FFFFFF 60%); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding:30px 5vw;}
 
-    /* Layout utama */
-    .container{
-      max-width:2000px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:1fr;
-      gap:24px;
-    }
+    /* Container utama */
+    .container{ max-width:2000px; margin:0 auto; display:grid; gap:24px; }
 
-    header{
-      display:flex;
-      flex-wrap:wrap;
-      gap:20px;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .logo{
-      width:68px;height:68px;
-      border-radius:14px;
-      background:conic-gradient(from 180deg at 50% 50%,#AEE1FF,#CFF7D6,#FFEB99);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:700;
-      box-shadow:var(--shadow);
-    }
-    h1{font-size:28px;margin:0;line-height:1.05;}
-    p.lead{margin:0;color:var(--muted);font-size:15px;}
+    header{ display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between; }
+    .brand{ display:flex; gap:12px; align-items:center; }
+    .logo { width:60px; height:60px; border-radius:16px; box-shadow:var(--shadow); overflow:hidden; display:flex; align-items:center; justify-content:center; background:none; }
+    .logo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-    .quick-nav{display:flex;gap:10px;flex-wrap:wrap;}
-    .btn{
-      background:var(--card);
-      padding:10px 16px;
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      border:none;
-      cursor:pointer;
-      font-weight:600;
-      transition:transform 180ms ease,box-shadow 180ms;
-    }
-    .btn:hover{transform:scale(var(--hover-scale));}
-    .btn-primary{background:linear-gradient(180deg,#D8F4FF,#AEE1FF);}
+    h1{ font-size:28px; margin:0; line-height:1.05; }
+    p.lead{ margin:0; color:var(--muted); font-size:15px; }
+
+    .quick-nav{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{ background:var(--card); padding:10px 16px; border-radius:12px; box-shadow:var(--shadow); border:none; cursor:pointer; font-weight:600; transition:transform 180ms ease,box-shadow 180ms; }
+    .btn:hover{ transform:scale(var(--hover-scale)); }
+    .btn-primary{ background:linear-gradient(180deg,#D8F4FF,#AEE1FF); }
 
     /* Hero */
-    .hero{
-      background:linear-gradient(90deg,rgba(174,225,255,0.25),rgba(207,247,214,0.25));
-      border-radius:var(--radius);
-      padding:28px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:28px;
-      box-shadow:var(--shadow);
-    }
-    .hero-visual{
-      width:40%;
-      min-height:200px;
-      border-radius:12px;
-      background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Books_%28cropped%29.jpg/640px-Books_%28cropped%29.jpg') center/cover no-repeat;
-      box-shadow:0 6px 18px rgba(24,39,56,0.06);
-    }
-    .hero-content{flex:1;}
-    .hero-content p{margin:6px 0 12px;}
-
-    /* Section dasar */
-    section.card{
-      background:var(--card);
-      padding:20px 24px;
-      border-radius:14px;
-      box-shadow:var(--shadow);
-    }
-    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-    .section-title h2{margin:0;font-size:20px;}
-    .small{font-size:13px;color:var(--muted);}
-
-    /* Komik */
-.comic-frame {
-  border-radius:14px;
-  overflow:hidden;
-  height: 1000px;px; /* dari 2000px diubah jadi 1400px */
-  background:#eee;
-  border:4px solid rgba(174,225,255,0.35);
-  box-shadow:0 8px 24px rgba(24,39,56,0.06);
+    .hero{ background: linear-gradient(90deg, rgba(174,225,255,0.25), rgba(207,247,214,0.25)); border-radius: var(--radius); padding: 40px; display:flex; align-items:center; justify-content:space-between; gap:40px; min-height:600px; box-shadow:var(--shadow); overflow:hidden; }
+    .hero-visual {
+  width: 45%;
+  min-height: 580px;
+  background: url('baca.png') center/cover no-repeat;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1s forwards 0.3s;
+  border-radius: 20px; /* <--- ini buat border bulat */
+  box-shadow: 0 0px 0px rgba(24,39,56,0.06);
 }
 
+    @keyframes fadeIn{ to{ opacity:1; transform:translateY(0); } }
+    .hero-content{ flex:1; }
+    .hero-content h2{ font-size:40px; margin-bottom:20px; }
+    .hero-content p{ margin:6px 0 12px; font-size:18px; }
+
+    /* Section card */
+    section.card{ background:var(--card); padding:20px 24px; border-radius:14px; box-shadow:var(--shadow); }
+    .section-title{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+    .section-title h2{ margin:0; font-size:20px; }
+    .small{ font-size:13px; color:var(--muted); }
+
+    /* Komik */
+    .comic-frame{ border-radius:14px; overflow:hidden; height:1000px; background:#eee; border:4px solid rgba(174,225,255,0.35); box-shadow:0 8px 24px rgba(24,39,56,0.06); }
+
+    /* Infografis dua kolom */
+    .two-column-infografis{ display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; }
+    .text-card{ flex:1; min-width:280px; }
+    .image-card{ flex:1; min-width:280px; display:flex; justify-content:center; align-items:flex-start; }
+    .image-card img{ width:60%; max-width:400px; height:auto; border:none; box-shadow:none; }
+
     /* Tabel */
-    .compare-table{width:100%;border-collapse:collapse;margin-top:10px;}
-    .compare-table th,.compare-table td{padding:10px;border-radius:8px;text-align:left;}
-    .compare-table th{background:var(--primary);color:var(--text);}
-    .compare-table td{background:linear-gradient(180deg,#fff,#FCFFFB);color:var(--muted);}
+    .table-card{ margin-top:30px; }
+    .compare-table{ width:100%; border-collapse:collapse; margin-top:10px; }
+    .compare-table th, .compare-table td{ padding:12px; border-radius:8px; text-align:left; }
+    .compare-table th{ background:var(--primary); color:var(--text); }
+    .compare-table td{ background:linear-gradient(180deg,#fff,#FCFFFB); color:var(--muted); }
 
     /* Latihan dua kolom */
-    .exercise-columns{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-    .exercise-column h3{
-      margin-bottom:8px;
-    }
-    .exercise-table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0 6px;
-      font-family:inherit;
-    }
-    .exercise-table td{
-      padding:12px;
-      border-radius:8px;
-      background:linear-gradient(180deg,#fff,#FCFFFB);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .exercise-table tbody tr:nth-child(odd) td{
-      background:linear-gradient(180deg,#F0F9FF,#FFFFFF);
-    }
-    .exercise-table tbody tr:nth-child(even) td{
-      background:linear-gradient(180deg,#FFFFFF,#F0FFF7);
-    }
-    .exercise-table td:hover{
-      transform:scale(1.02);
-      box-shadow:0 6px 18px rgba(24,39,56,0.08);
-    }
-    .exercise-table td:first-child{
-      width:40px;
-      text-align:center;
-    }
+    .exercise-columns{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .exercise-column h3{ margin-bottom:8px; }
+    .exercise-table{ width:100%; border-collapse:separate; border-spacing:0 6px; font-family:inherit; }
+    .exercise-table td{ padding:12px; border-radius:8px; background:linear-gradient(180deg,#fff,#FCFFFB); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .exercise-table tbody tr:nth-child(odd) td{ background:linear-gradient(180deg,#F0F9FF,#FFFFFF); }
+    .exercise-table tbody tr:nth-child(even) td{ background:linear-gradient(180deg,#FFFFFF,#F0FFF7); }
+    .exercise-table td:hover{ transform:scale(1.02); box-shadow:0 6px 18px rgba(24,39,56,0.08); }
+    .exercise-table td:first-child{ width:40px; text-align:center; }
 
     /* Daftar pustaka */
-    .bibliography ul{padding-left:18px;color:var(--muted);font-size:14px;}
+    .bibliography ul{ padding-left:18px; color:var(--muted); font-size:14px; }
 
     /* Footer */
-    footer{text-align:center;margin-top:10px;color:var(--muted);font-size:13px;}
+    footer{ text-align:center; margin-top:10px; color:var(--muted); font-size:13px; }
 
-    @media (max-width:1200px){
-      .exercise-columns{
-        grid-template-columns:1fr;
-      }
-      .hero{flex-direction:column;text-align:center;}
-      .hero-visual{width:100%;height:220px;}
+    @media(max-width:1200px){
+      .exercise-columns{ grid-template-columns:1fr; }
+      .hero{ flex-direction:column; text-align:center; }
+      .hero-visual{ width:100%; height:220px; }
+      .hero-content h2{ font-size:32px; }
+      .hero-content p{ font-size:16px; }
+      .two-column-infografis{ flex-direction:column; }
+      .image-card{ margin-top:20px; justify-content:center; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true">B📖</div>
-        <div>
-          <h1>Buku adalah Jendela Dunia</h1>
-          <p class="lead">Belajar kalimat langsung & tidak langsung — kelas 5 SD</p>
-        </div>
+  <header>
+    <div class="brand">
+      <div class="logo"><img src="logo.png" alt="Logo Buku" /></div>
+      <div>
+        <h1>Buku adalah Jendela Dunia</h1>
+        <p class="lead">Belajar kalimat langsung & tidak langsung — kelas 5 SD</p>
       </div>
-
-      <nav class="quick-nav" aria-label="Navigasi cepat">
-        <button class="btn btn-primary" onclick="scrollToSection('komik')">Komik Digital</button>
-        <button class="btn" onclick="scrollToSection('infografis')">Infografis</button>
-        <button class="btn" onclick="scrollToSection('latihan')">Latihan</button>
-        <button class="btn" onclick="scrollToSection('sumber')">Daftar Pustaka</button>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <div class="hero card" role="banner">
-      <div class="hero-content">
-        <h2 style="margin:0 0 8px">Selamat datang! 📚</h2>
-        <p>Website belajar interaktif ini membantu siswa kelas 5 SD memahami perbedaan antara kalimat langsung dan tidak langsung melalui komik, infografis, dan latihan.</p>
-        <div style="margin-top:12px;">
-          <button class="btn btn-primary" onclick="scrollToSection('komik')">Buka Komik</button>
-          <button class="btn" onclick="scrollToSection('latihan')">Lihat Latihan</button>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true"></div>
     </div>
 
-    <!-- KOMIK -->
-    <section id="komik" class="card">
-      <div class="section-title">
-        <h2>Komik Digital — Episode Ceria</h2>
-        <span class="small">Tampilan penuh komik interaktif</span>
+    <nav class="quick-nav" aria-label="Navigasi cepat">
+      <button class="btn btn-primary" onclick="scrollToSection('komik')">Komik Digital</button>
+      <button class="btn" onclick="scrollToSection('infografis')">Infografis</button>
+      <button class="btn" onclick="scrollToSection('latihan')">Latihan</button>
+      <button class="btn" onclick="scrollToSection('sumber')">Daftar Pustaka</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero card" role="banner">
+    <div class="hero-content">
+      <h2>Selamat datang! 📚</h2>
+      <p>Website belajar interaktif ini membantu siswa kelas 5 SD memahami perbedaan antara kalimat langsung dan tidak langsung melalui komik, infografis, dan latihan.</p>
+      <div style="margin-top:20px;">
+        <button class="btn btn-primary" onclick="scrollToSection('komik')">Buka Komik</button>
+        <button class="btn" onclick="scrollToSection('latihan')">Lihat Latihan</button>
       </div>
-      <div class="comic-frame">
-        <iframe src="https://heyzine.com/flip-book/a38032b2f5.html#page/10"
-          style="border:0;width:100%;height:100%;display:block;"
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          aria-label="Komik digital Buku adalah Jendela Dunia"></iframe>
+    </div>
+    <div class="hero-visual" aria-hidden="true"></div>
+  </div>
+
+  <!-- KOMIK -->
+  <section id="komik" class="card">
+    <div class="section-title">
+      <h2>Komik Digital — Episode Ceria</h2>
+      <span class="small">Tampilan penuh komik interaktif</span>
+    </div>
+    <div class="comic-frame">
+      <iframe src="https://heyzine.com/flip-book/a38032b2f5.html#page/10"
+        style="border:0;width:100%;height:100%;display:block;"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+        aria-label="Komik digital Buku adalah Jendela Dunia"></iframe>
+    </div>
+  </section>
+
+  <!-- INFOGRAFIS -->
+  <section id="infografis" class="card">
+    <div class="two-column-infografis">
+      <div class="text-card">
+        <div class="section-title"><h2>Penjelasan</h2></div>
+        <h3>PENGERTIAN KALIMAT LANGSUNG DAN KALIMAT TIDAK LANGSUNG</h3>
+        <h4>📢 Kalimat Langsung</h4>
+        <p>👉 Kalimat yang menyampaikan ucapan seseorang secara langsung seperti yang diucapkan.</p>
+        <ul>
+          <li>Tanda petik (“...”) </li>
+          <li>Tanda koma (,) sebelum kalimat kutipan</li>
+          <li>Huruf besar di awal kalimat yang dikutip</li>
+        </ul>
+        <p>🟢 Contoh: Ibu berkata, “Jangan lupa sarapan, Rara!”<br>💡 Artinya: Kata-kata di dalam tanda petik adalah ucapan asli dari Ibu.</p>
+        <h4>💬 Kalimat Tidak Langsung</h4>
+        <p>👉 Kalimat yang menyampaikan kembali ucapan seseorang dengan cara berbeda, tanpa tanda petik.</p>
+        <ul>
+          <li>Biasanya memakai kata sambung seperti <em>bahwa, agar, supaya, atau untuk</em></li>
+        </ul>
+        <p>🟣 Contoh: Ibu berkata agar Rara tidak lupa sarapan.<br>💡 Artinya: Ucapan Ibu sudah diubah bentuknya, tetapi maknanya tetap sama.</p>
       </div>
-    </section>
-
-    <!-- INFOGRAFIS -->
-    <section id="infografis" class="card">
-      <div class="section-title">
-        <h2>Penjelasan</h2>
+      <div class="image-card">
+        <img src="../rara.png" alt="Infografis Kalimat Langsung & Tidak Langsung">
       </div>
+    </div>
 
-      <h3>PENGERTIAN KALIMAT LANGSUNG DAN KALIMAT TIDAK LANGSUNG</h3>
-
-      <h4>📢 Kalimat Langsung</h4>
-      <p>👉 Kalimat yang menyampaikan ucapan seseorang secara langsung seperti yang diucapkan.</p>
-      <ul>
-        <li>Tanda petik (“...”)</li>
-        <li>Tanda koma (,) sebelum kalimat kutipan</li>
-        <li>Huruf besar di awal kalimat yang dikutip</li>
-      </ul>
-      <p>🟢 Contoh: Ibu berkata, “Jangan lupa sarapan, Rara!”<br>💡 Artinya: Kata-kata di dalam tanda petik adalah ucapan asli dari Ibu.</p>
-
-      <h4>💬 Kalimat Tidak Langsung</h4>
-      <p>👉 Kalimat yang menyampaikan kembali ucapan seseorang dengan cara berbeda, tanpa tanda petik.</p>
-      <ul>
-        <li>Biasanya memakai kata sambung seperti <em>bahwa, agar, supaya, atau untuk</em></li>
-      </ul>
-      <p>🟣 Contoh: Ibu berkata agar Rara tidak lupa sarapan.<br>💡 Artinya: Ucapan Ibu sudah diubah bentuknya, tetapi maknanya tetap sama.</p>
-
-      <h3>📊 Tabel Perbandingan</h3>
+    <!-- Tabel -->
+    <div class="table-card">
+      <h3>📊 Tabel Perbandingan Kalimat Langsung & Tidak Langsung</h3>
       <table class="compare-table">
         <thead>
           <tr>
@@ -269,67 +202,67 @@
           <tr><td>Makna</td><td>Sama persis dengan ucapan asli</td><td>Sama makna, beda cara penyampaian</td></tr>
         </tbody>
       </table>
-    </section>
+    </div>
+  </section>
 
-    <!-- LATIHAN -->
-    <section id="latihan" class="card">
-      <div class="section-title"><h2>Latihan Kalimat Langsung dan Tidak Langsung</h2></div>
-      <div class="exercise-columns">
-        <div class="exercise-column">
-          <h3>📘 Latihan 1–5</h3>
-          <table class="exercise-table">
-            <tbody>
-              <tr><td>1</td><td>Rara berkata, “Aku sudah mengerjakan PR, Bu.”<br>👉 ..................................</td></tr>
-              <tr><td>2</td><td>Ayah berpesan, “Tolong matikan lampu sebelum tidur!”<br>👉 ..................................</td></tr>
-              <tr><td>3</td><td>Pak Guru berkata, “Besok kita piknik ke taman kota.”<br>👉 ..................................</td></tr>
-              <tr><td>4</td><td>Dinda berkata, “Aku ingin menjadi dokter saat besar nanti.”<br>👉 ..................................</td></tr>
-              <tr><td>5</td><td>Ibu berteriak, “Jangan bermain di jalan raya!”<br>👉 ..................................</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="exercise-column">
-          <h3>📗 Latihan 6–10</h3>
-          <table class="exercise-table">
-            <tbody>
-              <tr><td>6</td><td>Budi mengatakan bahwa dia sedang menonton film di rumah.<br>👉 ..................................</td></tr>
-              <tr><td>7</td><td>Ibu meminta agar Andi segera tidur.<br>👉 ..................................</td></tr>
-              <tr><td>8</td><td>Siti berkata bahwa ia lupa membawa buku cerita.<br>👉 ..................................</td></tr>
-              <tr><td>9</td><td>Guru menjelaskan bahwa besok akan ada ulangan Bahasa Indonesia.<br>👉 ..................................</td></tr>
-              <tr><td>10</td><td>Ayah menasihati agar Raka selalu jujur kepada teman-temannya.<br>👉 ..................................</td></tr>
-            </tbody>
-          </table>
-        </div>
+  <!-- LATIHAN -->
+  <section id="latihan" class="card">
+    <div class="section-title"><h2>Latihan Kalimat Langsung dan Tidak Langsung</h2></div>
+    <div class="exercise-columns">
+      <div class="exercise-column">
+        <h3>📘 Latihan 1–5</h3>
+        <table class="exercise-table">
+          <tbody>
+            <tr><td>1</td><td>Rara berkata, “Aku sudah mengerjakan PR, Bu.”<br>👉 ..................................</td></tr>
+            <tr><td>2</td><td>Ayah berpesan, “Tolong matikan lampu sebelum tidur!”<br>👉 ..................................</td></tr>
+            <tr><td>3</td><td>Pak Guru berkata, “Besok kita piknik ke taman kota.”<br>👉 ..................................</td></tr>
+            <tr><td>4</td><td>Dinda berkata, “Aku ingin menjadi dokter saat besar nanti.”<br>👉 ..................................</td></tr>
+            <tr><td>5</td><td>Ibu berteriak, “Jangan bermain di jalan raya!”<br>👉 ..................................</td></tr>
+          </tbody>
+        </table>
       </div>
-      <p class="small" style="color:var(--muted)">Kerjakan di buku tulis, lalu diskusikan jawaban dengan guru atau teman sekelompok.</p>
-    </section>
-
-    <!-- SUMBER -->
-    <section id="sumber" class="card">
-      <div class="section-title"><h2>Daftar Pustaka</h2></div>
-      <div class="bibliography">
-        <ul>
-          <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia. (2021). Buku Siswa Bahasa Indonesia untuk SD/MI Kelas V (Kurikulum Merdeka). Jakarta: Pusat Kurikulum dan Perbukuan, Balitbang dan Perbukuan.</li>
-          <li>Kementerian Pendidikan dan Kebudayaan Republik Indonesia. (2018). Bahasa Indonesia: Buku Siswa SD/MI Kelas V Kurikulum 2013 Revisi. Jakarta: Kemendikbud.</li>
-          <li>Brain Academy by Ruangguru. (2023). Kalimat Langsung dan Tidak Langsung: Pengertian, Ciri, dan Contohnya. Diakses dari https://www.brainacademy.id/blog/kalimat-langsung-dan-tidak-langsung</li>
-          <li>Detik Edu. (2022). Kalimat Tidak Langsung: Pengertian, Ciri, dan Contohnya. Diakses dari https://www.detik.com/edu/detikpedia/d-5859024/kalimat-tidak-langsung-pengertian-ciri-ciri-dan-contohnya</li>
-          <li>Supriyadi, D. (2020). Pembelajaran Bahasa Indonesia di Sekolah Dasar: Teori dan Praktik. Bandung: Alfabeta.</li>
-          <li>Wulandari, A. (2021). “Analisis Penggunaan Kalimat Langsung dan Tidak Langsung dalam Buku Teks Bahasa Indonesia SD.” Jurnal Pendidikan Bahasa dan Sastra Indonesia, 6(2), 112–120.</li>
-          <li>Yuliani, S. (2019). Panduan Praktis Bahasa Indonesia untuk SD dan MI. Yogyakarta: Deepublish.</li>
-        </ul>
+      <div class="exercise-column">
+        <h3>📗 Latihan 6–10</h3>
+        <table class="exercise-table">
+          <tbody>
+            <tr><td>6</td><td>Budi mengatakan bahwa dia sedang menonton film di rumah.<br>👉 ..................................</td></tr>
+            <tr><td>7</td><td>Ibu meminta agar Andi segera tidur.<br>👉 ..................................</td></tr>
+            <tr><td>8</td><td>Siti berkata bahwa ia lupa membawa buku cerita.<br>👉 ..................................</td></tr>
+            <tr><td>9</td><td>Guru menjelaskan bahwa besok akan ada ulangan Bahasa Indonesia.<br>👉 ..................................</td></tr>
+            <tr><td>10</td><td>Ayah menasihati agar Raka selalu jujur kepada teman-temannya.<br>👉 ..................................</td></tr>
+          </tbody>
+        </table>
       </div>
-    </section>
+    </div>
+    <p class="small" style="color:var(--muted)">Kerjakan di buku tulis, lalu diskusikan jawaban dengan guru atau teman sekelompok.</p>
+  </section>
 
-    <footer>
-      © <span id="year"></span> Buku adalah Jendela Dunia — untuk siswa SD kelas 5
-    </footer>
-  </div>
+  <!-- SUMBER -->
+  <section id="sumber" class="card">
+    <div class="section-title"><h2>Daftar Pustaka</h2></div>
+    <div class="bibliography">
+      <ul>
+        <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia. (2021). Buku Siswa Bahasa Indonesia untuk SD/MI Kelas V (Kurikulum Merdeka). Jakarta: Pusat Kurikulum dan Perbukuan, Balitbang dan Perbukuan.</li>
+        <li>Kementerian Pendidikan dan Kebudayaan Republik Indonesia. (2018). Bahasa Indonesia: Buku Siswa SD/MI Kelas V Kurikulum 2013 Revisi. Jakarta: Kemendikbud.</li>
+        <li>Brain Academy by Ruangguru. (2023). Kalimat Langsung dan Tidak Langsung: Pengertian, Ciri, dan Contohnya. Diakses dari https://www.brainacademy.id/blog/kalimat-langsung-dan-tidak-langung</li>
+        <li>Detik Edu. (2022). Kalimat Tidak Langsung: Pengertian, Ciri, dan Contohnya. Diakses dari https://www.detik.com/edu/detikpedia/d-5859024/kalimat-tidak-langsung-pengertian-ciri-ciri-dan-contohnya</li>
+        <li>Supriyadi, D. (2020). Pembelajaran Bahasa Indonesia di Sekolah Dasar: Teori dan Praktik. Bandung: Alfabeta.</li>
+        <li>Wulandari, A. (2021). “Analisis Penggunaan Kalimat Langsung dan Tidak Langsung dalam Buku Teks Bahasa Indonesia SD.” Jurnal Pendidikan Bahasa dan Sastra Indonesia, 6(2), 112–120.</li>
+        <li>Yuliani, S. (2019). Panduan Praktis Bahasa Indonesia untuk SD dan MI. Yogyakarta: Deepublish.</li>
+      </ul>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    function scrollToSection(id){
-      document.getElementById(id).scrollIntoView({behavior:'smooth'});
-    }
-  </script>
+  <footer>
+    © <span id="year"></span> Buku adalah Jendela Dunia — untuk siswa SD kelas 5
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  }
+</script>
 </body>
 </html>
